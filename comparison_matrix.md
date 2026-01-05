@@ -1,28 +1,105 @@
-# Identity Exposure Coverage Matrix  
-**Tenable Identity Exposure vs BloodHound (Enterprise)**
+# Tenable Identity Exposure Attack Path Coverage Matrix  
+**Tenable Identity Exposure vs BloodHound**
 
-| Capability / Domain                                   | Tenable Identity Exposure (Alsid) | BloodHound (Enterprise) | Notes |
-|------------------------------------------------------|----------------------------------|--------------------------|-------|
-| **Data Collection Model**                             | Relay-based (agent / service)    | Native graph ingestion   | TIE requires infrastructure relays |
-| **AD Object Graph Modeling**                          | ⚠ Partial                         | ✔ Full                   | BloodHound is graph-native |
-| **Attack Path Analysis**                              | ⚠ Abstracted                     | ✔ Explicit                | BH shows real privilege paths |
-| **Privilege Escalation Paths**                        | ⚠ High-level signals             | ✔ Exact edges             | BH exposes concrete attack chains |
-| **Delegation Abuse Detection**                        | ✔ Yes                             | ✔ Yes                    | BH provides deeper context |
-| **Kerberos Abuse (DCSync, RBCD, etc.)**               | ⚠ Limited                        | ✔ Full                   | BH maps abuse primitives directly |
-| **ACL / ACE Resolution**                              | ⚠ Simplified                     | ✔ Exhaustive              | BH resolves effective permissions |
-| **Trust Relationship Mapping**                        | ⚠ Partial                        | ✔ Full                   | BH models transitive trust paths |
-| **Group Nesting Depth Analysis**                      | ⚠ Limited                        | ✔ Unlimited               | BH resolves deep nesting |
-| **Shadow Admin Detection**                            | ✔ Yes                             | ✔ Yes                    | BH shows *how* it happens |
-| **Tiering / Security Boundary Awareness**             | ⚠ Opinionated                    | ✔ Model-driven            | BH does not impose vendor bias |
-| **Risk Scoring Transparency**                         | ❌ Opaque                         | ✔ Transparent             | BH scoring is explainable |
-| **Raw Data Export (Full Fidelity)**                   | ❌ CSV only                       | ✔ Graph / JSON            | TIE loses graph semantics |
-| **API Coverage**                                      | ⚠ Limited                        | ✔ Extensive               | BH Enterprise exposes graph APIs |
-| **Non-Admin Consumption (Executives)**                | ❌ No                             | ⚠ With tooling            | Neither is exec-ready OOTB |
-| **SOC / SIEM Integration**                            | ⚠ CSV / PowerBI recommended      | ✔ Native Splunk apps      | BloodHound Splunk app exists |
-| **Historical State Comparison**                       | ⚠ Limited                        | ✔ Full                    | BH supports temporal analysis |
-| **Change Impact Analysis**                            | ⚠ Signal-based                   | ✔ Graph-delta             | BH shows what changed and why |
-| **Explainability (“Why is this risky?”)**             | ❌ Minimal                        | ✔ Explicit path           | Key executive failure in TIE |
-| **Vendor Lock-in**                                    | ✔ High                           | ⚠ Moderate                | BH graph can be reused |
-| **Licensing Cost vs Insight Depth**                   | ❌ Poor                           | ✔ Strong                  | TIE heavily marketed |
-| **Designed for Practitioners**                        | ❌ No                             | ✔ Yes                     | BH built by operators |
-| **Marketing vs Technical Accuracy**                   | ❌ Marketing-led                 | ✔ Reality-led             | Central philosophical gap |
+**Sources**
+- BloodHound documentation: https://bloodhound.specterops.io/get-started/introduction  
+- Tenable Identity Exposure public SaaS documentation
+
+---
+
+## Core Data Model & Purpose
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Product Origin | Alsid acquisition | SpecterOps original research |
+| Primary Purpose | Identity configuration & exposure analysis | Active Directory attack path analysis |
+| Core Data Model | Configuration/state-based | Graph-based (nodes & edges) |
+| Underlying Graph Engine | ❌ Not documented | ✔ Neo4j |
+| Attack Path Modeling | ❌ Not documented | ✔ Explicitly documented |
+| Privilege Escalation Modeling | ❌ Not documented | ✔ Documented |
+| Lateral Movement Modeling | ❌ Not documented | ✔ Documented |
+
+---
+
+## Data Collection Architecture
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Collection Method | Dedicated relay / collector | SharpHound collector |
+| Agentless Collection | ❌ No | ✔ Yes |
+| Requires Domain Admin | Not documented | ❌ No |
+| Snapshot-Based Collection | ✔ Yes | ✔ Yes |
+| Continuous / Near-Real-Time | Partial | ❌ No |
+| Forest & Domain Scope | ✔ Yes | ✔ Yes |
+
+---
+
+## Analysis Capabilities
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Graph Traversal | ❌ Not documented | ✔ Native |
+| Shortest Attack Path Analysis | ❌ Not documented | ✔ Documented |
+| Multi-Hop Escalation Paths | ❌ Not documented | ✔ Documented |
+| Transitive Permission Analysis | ❌ Not documented | ✔ Documented |
+| Delegation Abuse Modeling | ❌ Not documented | ✔ Documented |
+| Kerberos Attack Modeling | ❌ Not documented | ✔ Documented |
+
+---
+
+## Query & Exploration
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Interactive Graph Exploration | ❌ No | ✔ Yes |
+| Custom Query Language | ❌ No | ✔ Cypher |
+| Analyst-Driven Exploration | ❌ No | ✔ Yes |
+| Ad-Hoc Relationship Queries | ❌ No | ✔ Yes |
+| Rule-Based Findings | ✔ Yes | ❌ (analysis-driven) |
+
+---
+
+## Output & Integration
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Native Data Export | Limited (CSV guidance) | ✔ Yes |
+| Public API | ❌ Not publicly documented | ❌ Community / ✔ Enterprise |
+| Machine-Readable Graph Export | ❌ No | ✔ Yes |
+| SIEM Integration | Indirect (CSV → BI tools) | ✔ Direct (JSON / Splunk apps) |
+| External Tooling Ecosystem | ❌ Minimal | ✔ Extensive |
+
+---
+
+## User Model & Accessibility
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Requires Admin UI Access | ✔ Yes | ❌ No |
+| Security Analyst Friendly | ❌ Limited | ✔ Yes |
+| Executive-Ready Views | UI-only | ❌ Not claimed |
+| Security Engineer Usability | ❌ Constrained | ✔ Native |
+| Non-Admin Data Consumption | ❌ No | ✔ Yes |
+
+---
+
+## Transparency & Trust Model
+
+| Capability | Tenable Identity Exposure | BloodHound |
+|-----------|---------------------------|------------|
+| Attack Logic Visibility | ❌ Opaque | ✔ Transparent |
+| Detection Logic Auditable | ❌ No | ✔ Yes |
+| Community Validation | ❌ No | ✔ Extensive |
+| Research-Driven Foundation | ❌ Not documented | ✔ Yes |
+| Marketing Dependency | High | Low |
+
+---
+
+## Fact-Based Summary
+
+- BloodHound is explicitly documented as a **graph-based Active Directory attack path analysis platform**
+- Tenable Identity Exposure is documented as a **configuration and exposure analysis product**, not an attack graph engine
+- There is **no documented attack path traversal, shortest-path analysis, or graph query capability** in Tenable Identity Exposure
+- Claims that Tenable Identity Exposure replaces BloodHound are **not supported by either product’s documentation**
+
+---
