@@ -206,4 +206,209 @@ An identity-related weakness that is newly discovered and not yet widely mitigat
 
 ---
 
-End of glossary section (A–Z).
+# Tenable Identity Exposure — Glossary (Working Draft)
+
+## Attack Path
+**Attack Path**  
+Shows the possible paths that an attacker can take to compromise an asset from an entry point.
+
+---
+
+## Asset Exposure
+**Asset Exposure**  
+Shows all paths that can potentially take control of an asset.
+
+---
+
+## Exposure Signal
+**Exposure Signal**  
+An Exposure Signal is a combination of risks that could make any weakness potentially dangerous to the organization.  
+An exposure signal is identified when multiple weaknesses coexist on an asset, increasing the likelihood of exploitation.
+
+**Example conditions contributing to an Exposure Signal include:**
+- Privileged access to a business-critical application
+- Unpatched vulnerabilities on the asset
+- A device not covered by endpoint protection
+
+When combined, these weaknesses indicate that the asset represents a significant risk to the organization.
+
+---
+
+## Indicator of Exposure (IoE)
+**Indicator of Exposure (IoE)**  
+A security indicator representing a misconfiguration, risky setting, or weakness in Active Directory that could contribute to an attack path.
+
+---
+
+## Indicator of Attack (IoA)
+**Indicator of Attack (IoA)**  
+A signal representing malicious activity or behavior detected within Active Directory that indicates an active or attempted attack.
+
+
+---
+
+## Compliance Score
+**Compliance Score**  
+A calculated score ranging from 0 to 100 that represents the security posture of the environment, based on the number of detected deviances and their severity levels.
+
+---
+
+## Active User Count
+**Active User Count**  
+The number of Active Directory users currently considered active within the monitored domain or forest.
+
+---
+
+## Privileged Account
+**Privileged Account**  
+An account with elevated permissions in Active Directory, including administrative or delegated rights that can affect security posture.
+
+---
+
+## Native Administrator
+**Native Administrator**  
+A built-in Active Directory administrative account with default high-level privileges.
+
+---
+
+## Kerberos Delegation
+**Kerberos Delegation**  
+A configuration that allows a service to impersonate a user when accessing resources, which can become dangerous if misconfigured.
+
+---
+
+## Dangerous Kerberos Delegation
+**Dangerous Kerberos Delegation**  
+A Kerberos delegation configuration identified as risky because it could allow attackers to impersonate users or escalate privileges.
+
+---
+
+## SDProp
+**SDProp**  
+A mechanism in Active Directory that periodically enforces security descriptors on protected objects.
+
+---
+
+## SDProp Consistency
+**SDProp Consistency**  
+The state where security descriptors on protected objects are correctly enforced and aligned with expected configurations.
+
+---
+
+## Domain Controller
+**Domain Controller**  
+A server that hosts Active Directory Domain Services and is responsible for authentication, authorization, and directory services.
+
+---
+
+## Domain Controller Managed by Illegitimate User
+**Domain Controller Managed by Illegitimate User**  
+A condition where a domain controller is administered by an account that should not have management privileges.
+
+---
+
+## Risk Criticality
+**Risk Criticality**  
+A classification that represents the potential impact and exploitability of a detected risk.
+
+---
+
+## User Category
+**User Category**  
+A classification of users based on attributes such as role, privilege level, or behavior.
+
+---
+
+## User Monitoring
+**User Monitoring**  
+Tracking changes and activity related to Active Directory users, including creation, modification, and privilege changes.
+
+---
+
+## Administrative Account Monitoring
+**Administrative Account Monitoring**  
+Monitoring focused on accounts with administrative privileges to detect risky configurations or behaviors.
+
+---
+
+## Risk Evolution
+**Risk Evolution**  
+The progression of detected risks within the environment over time, used for trend analysis.
+
+---
+
+## Exposure Path
+**Exposure Path**  
+A chain of relationships and configurations that could allow an attacker to move through Active Directory to reach a target.
+
+---
+
+## Business-Critical Asset
+**Business-Critical Asset**  
+An asset identified as essential to business operations, where compromise would have significant impact.
+
+---
+
+## Endpoint Coverage
+**Endpoint Coverage**  
+The presence or absence of endpoint security controls on devices monitored by Tenable Identity Exposure.
+
+---
+
+## Management Plane
+**Management Plane**  
+The administrative control surface of Active Directory where configuration and privilege changes occur.
+
+---
+
+## Identity Risk
+**Identity Risk**  
+Risk associated with user identities, credentials, permissions, and authentication mechanisms.
+
+---
+
+## Privilege Escalation Path
+**Privilege Escalation Path**  
+A sequence of misconfigurations or relationships that could allow a user to gain higher privileges.
+
+---
+
+## Exposure Surface
+**Exposure Surface**  
+The total set of identity-related weaknesses that could be exploited in the environment.
+
+---
+
+## Remediation Recommendation
+**Remediation Recommendation**  
+Guidance provided by Tenable Identity Exposure to resolve a detected deviance or reduce risk.
+
+---
+
+## Risk Indicator
+**Risk Indicator**  
+A measurable signal used to identify potential security weaknesses or attack opportunities.
+
+---
+
+## Forest
+**Forest**  
+The highest-level Active Directory container that can include multiple domains sharing trust relationships.
+
+---
+
+## Domain
+**Domain**  
+A logical grouping of users, computers, and resources within an Active Directory forest.
+
+---
+
+## Trust Relationship
+**Trust Relationship**  
+A configuration that allows users in one domain or forest to access resources in another.
+
+---
+
+## Exposure Analysis
+**Exposure Analysis**  
+The process of evaluating identity data to identify attack paths, exposure signals, and risks.
