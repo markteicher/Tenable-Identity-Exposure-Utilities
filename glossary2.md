@@ -412,3 +412,55 @@ A configuration that allows users in one domain or forest to access resources in
 ## Exposure Analysis
 **Exposure Analysis**  
 The process of evaluating identity data to identify attack paths, exposure signals, and risks.
+
+
+### ACL changed
+Modification to the Access Control List of an Active Directory object that changes permissions assigned to users or groups.
+
+### SPN changed
+Modification to an existing Service Principal Name associated with an account, affecting Kerberos service authentication mapping.
+
+### Member removed
+Removal of a user, computer, or group from an Active Directory group.
+
+### New member
+Addition of a user, computer, or group to an Active Directory group.
+
+### New trust
+Creation of a trust relationship between domains or forests enabling cross-domain authentication.
+
+### Unknown file type added
+Addition of a file with an unrecognized or unsupported file type to a monitored location.
+
+### New object
+Creation of a new Active Directory object such as a user, group, computer, organizational unit, or policy object.
+
+### Object removed
+Deletion of an existing Active Directory object.
+
+### Password changed
+Successful change of a password for a user or service account.
+
+### UAC changed
+Modification to User Account Control flags that alter account behavior or privilege characteristics.
+
+### New GPO linked
+Linking of a Group Policy Object to a site, domain, or organizational unit.
+
+### GPO link removed
+Removal of a Group Policy Object link from a site, domain, or organizational unit.
+
+### Owner change
+Change of ownership for an object, transferring control and permission authority.
+
+### File renamed
+Change to the name of a file without modifying its contents.
+
+### SPN created
+Creation of a new Service Principal Name for an account to support Kerberos authentication.
+
+### Failed authentication reset
+Unsuccessful attempt to reset authentication failure counters.
+
+### Failed authentication
+Unsuccessful authentication attempt due to invalid credentials or policy restrictions.
